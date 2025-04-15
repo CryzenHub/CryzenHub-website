@@ -3,362 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRYZEN | Roblox Script Hub</title>
+    <title>CRYZEN - ROBLOX SCRIPT V0.1.5</title>
     <style>
-        * {
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f0f1a;
+            color: #e0e0e0;
         }
-
-        body {
-            background-color: #050e1f;
-            color: #e0f0ff;
-            overflow-x: hidden;
-        }
-
+        
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            position: relative;
-            z-index: 1;
         }
-
+        
         header {
             text-align: center;
-            padding: 40px 0;
-        }
-
-        h1 {
-            font-size: 4rem;
-            color: #5cddff;
-            text-shadow: 0 0 15px rgba(92, 221, 255, 0.5);
-            margin-bottom: 10px;
-            letter-spacing: 3px;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: #a0c8ff;
-            margin-bottom: 30px;
-        }
-
-        .script-container {
-            background-color: rgba(5, 20, 50, 0.8);
+            padding: 30px 0;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
             border-radius: 10px;
-            padding: 20px;
             margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(5, 82, 180, 0.3);
-            border: 1px solid #1e3d6e;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
-
-        h2 {
-            font-size: 2rem;
-            color: #5cddff;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
+        
+        h1 {
+            font-size: 36px;
+            margin: 0;
+            background: linear-gradient(45deg, #00ccff, #7000ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 204, 255, 0.3);
         }
-
-        h2:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, #5cddff, transparent);
+        
+        .version {
+            font-size: 18px;
+            color: #00ccff;
+            margin-top: 10px;
         }
-
-        pre {
-            background-color: #0a1833;
+        
+        .section {
+            background-color: #1a1a2e;
+            border-radius: 8px;
             padding: 20px;
-            border-radius: 5px;
-            overflow-x: auto;
-            border: 1px solid #1a3055;
-        }
-
-        code {
-            font-family: Consolas, Monaco, 'Andale Mono', monospace;
-            color: #e0f0ff;
-            line-height: 1.5;
-        }
-
-        .keyword {
-            color: #ff7edb;
-        }
-
-        .string {
-            color: #7aff7a;
-        }
-
-        .comment {
-            color: #5d7b9d;
-        }
-
-        .function {
-            color: #36f9f6;
-        }
-
-        .number {
-            color: #ffcc66;
-        }
-
-        .faq-container {
-            margin-top: 50px;
-        }
-
-        .faq-item {
             margin-bottom: 20px;
-            border-bottom: 1px solid #1e3d6e;
-            padding-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-
-        .faq-question {
-            font-size: 1.3rem;
-            color: #5cddff;
-            margin-bottom: 10px;
-            cursor: pointer;
-            font-weight: bold;
+        
+        h2 {
+            color: #00ccff;
+            border-bottom: 2px solid #00ccff;
+            padding-bottom: 10px;
+            margin-top: 0;
         }
-
-        .faq-answer {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #c4d8ff;
-        }
-
-        .feature-list {
-            margin: 20px 0;
-        }
-
-        .feature-list li {
-            margin-bottom: 10px;
-            list-style-type: none;
+        
+        .code-container {
+            background-color: #111122;
+            border-radius: 5px;
+            padding: 15px;
             position: relative;
-            padding-left: 25px;
+            margin: 15px 0;
+            overflow: hidden;
         }
-
-        .feature-list li:before {
-            content: '✨';
+        
+        .code {
+            font-family: 'Consolas', 'Courier New', monospace;
+            color: #e0e0e0;
+            white-space: pre-wrap;
+            word-break: break-all;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #00ccff;
+            color: #0f0f1a;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        
+        .copy-btn:hover {
+            background-color: #7000ff;
+            color: white;
+        }
+        
+        .features {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .features li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .features li:before {
+            content: "✦";
             position: absolute;
             left: 0;
-            color: #5cddff;
+            color: #00ccff;
         }
-
-        .button {
-            display: inline-block;
-            background: linear-gradient(135deg, #1e5799, #207cca);
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #888;
+            font-size: 12px;
+        }
+        
+        .glow-button {
+            background: linear-gradient(45deg, #00ccff, #7000ff);
+            border: none;
             color: white;
             padding: 12px 30px;
             border-radius: 50px;
-            text-decoration: none;
+            font-size: 16px;
             font-weight: bold;
-            margin-top: 20px;
-            border: none;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 5px 15px rgba(0, 119, 255, 0.3);
+            display: block;
+            margin: 30px auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 204, 255, 0.5);
         }
-
-        .button:hover {
+        
+        .glow-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 119, 255, 0.5);
+            box-shadow: 0 0 30px rgba(112, 0, 255, 0.7);
         }
-
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            color: #6d8ab4;
-            font-size: 0.9rem;
-            border-top: 1px solid #1e3d6e;
-            margin-top: 50px;
-        }
-
-        /* Background Orbs Animation */
-        .orbs-container {
+        
+        .notification {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            z-index: 0;
-        }
-
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(10px);
-            opacity: 0.2;
-            background: radial-gradient(circle at center, #5cddff, #0055b3);
-        }
-
-        @media screen and (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .container {
-                padding: 10px;
-            }
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #00ccff;
+            color: #0f0f1a;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.7);
+            display: none;
+            z-index: 100;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div class="orbs-container" id="orbs-container"></div>
-    
     <div class="container">
         <header>
             <h1>CRYZEN</h1>
-            <div class="subtitle">Advanced Roblox Script Hub</div>
+            <div class="version">Version V0.1.5 - BETA</div>
         </header>
-
-        <div class="script-container">
-            <h2>Main Script</h2>
-            <p>Copy and paste this script into your Roblox executor:</p>
+        
+        <div class="section">
+            <h2>About CRYZEN</h2>
+            <p>CRYZEN is a powerful Roblox script designed to enhance your gaming experience. This beta version offers a range of features to give you an edge in various Roblox games.</p>
         </div>
-
-        <div class="script-container">
-            <h2>Features</h2>
-            <ul class="feature-list">
-                <li>Universal ESP and Aimbot functionality</li>
-                <li>Anti-cheat bypasses for popular Roblox games</li>
-                <li>Custom UI with Celestial Blue theme</li>
-                <li>Auto-execute option for instant loading</li>
-                <li>Support for over 85 popular Roblox games</li>
-                <li>Continuous updates and improvements</li>
-                <li>Teleportation and player utilities</li>
-                <li>Advanced player customization options</li>
+        
+        <div class="section">
+            <h2>Key Features</h2>
+            <ul class="features">
+                <li>Optimized performance with minimal lag</li>
+                <li>User-friendly interface with customizable settings</li>
+                <li>Compatible with most popular Roblox games</li>
+                <li>Regular updates and improvements</li>
+                <li>Advanced security to reduce ban risk</li>
             </ul>
-            <button class="button">Download CRYZEN Hub</button>
         </div>
-
-        <div class="script-container faq-container">
-            <h2>Frequently Asked Questions</h2>
+        
+        <div class="section">
+            <h2>How to Use</h2>
+            <p>Copy the loadstring below and paste it into your Roblox executor to run CRYZEN:</p>
             
-            <div class="faq-item">
-                <div class="faq-question">How do I execute this script?</div>
-                <div class="faq-answer">
-                    To execute the CRYZEN Hub script, you'll need to use a compatible Roblox executor like Synapse X, KRNL, or Fluxus. Copy the script above, paste it into your executor's textbox, and press the execute button. The hub will automatically initialize with its Celestial Blue theme.
-                </div>
+            <div class="code-container">
+                <div class="code">loadstring(game:HttpGet("https://raw.githubusercontent.com/CryzenTeam/CryzenScript/main/loader.lua"))();</div>
+                <button class="copy-btn" onclick="copyLoadstring()">Copy</button>
             </div>
             
-            <div class="faq-item">
-                <div class="faq-question">Is this script safe to use?</div>
-                <div class="faq-answer">
-                    Yes, CRYZEN Hub is designed with safety in mind. It includes anti-detection features that help prevent bans in most games. However, as with any third-party script, there's always some risk when using exploits in Roblox. We recommend using an alt account if you're concerned about potential bans.
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Which games are supported?</div>
-                <div class="faq-answer">
-                    CRYZEN Hub supports over 85 popular Roblox games including Adopt Me, Brookhaven, Jailbreak, Arsenal, Phantom Forces, Bee Swarm Simulator, and many more. Even if a game isn't directly supported, the universal features will still work in most Roblox environments.
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">How do I customize the hotkeys?</div>
-                <div class="faq-answer">
-                    You can customize hotkeys by clicking on the Settings icon in the CRYZEN Hub UI after executing the script. Navigate to the "Controls" tab where you can rebind any function to your preferred key. By default, the toggle key for the entire UI is set to RightShift.
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">How often is CRYZEN Hub updated?</div>
-                <div class="faq-answer">
-                    We update CRYZEN Hub regularly, typically on a weekly basis. These updates include new features, bug fixes, and compatibility updates for the latest Roblox changes. You'll receive a notification within the hub when a new update is available.
-                </div>
-            </div>
+            <p>After execution, press the <strong>[INSERT]</strong> key to open the main menu.</p>
+        </div>
+        
+        <button class="glow-button" onclick="window.location.href='#'">Download Supported Executor</button>
+        
+        <div class="section">
+            <h2>Changelog - V0.1.5</h2>
+            <ul class="features">
+                <li>Initial beta release</li>
+                <li>Added core functionality</li>
+                <li>Implemented basic UI</li>
+                <li>Optimized for stable performance</li>
+                <li>Added support for popular games</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>CRYZEN © 2025 | This is for educational purposes only. Use at your own risk.</p>
         </div>
     </div>
-
-    <footer>
-        <p>© 2025 CRYZEN Hub | Not affiliated with Roblox Corporation</p>
-    </footer>
-
+    
+    <div class="notification" id="copyNotification">Loadstring copied to clipboard!</div>
+    
     <script>
-        // Create animated background orbs
-        function createOrbs() {
-            const orbsContainer = document.getElementById('orbs-container');
-            const numberOfOrbs = 20;
-            
-            for (let i = 0; i < numberOfOrbs; i++) {
-                const orb = document.createElement('div');
-                orb.classList.add('orb');
+        function copyLoadstring() {
+            const codeText = document.querySelector('.code').innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const notification = document.getElementById('copyNotification');
+                notification.style.display = 'block';
                 
-                // Random size between 100px and 300px
-                const size = Math.random() * 200 + 100;
-                orb.style.width = `${size}px`;
-                orb.style.height = `${size}px`;
-                
-                // Random position
-                orb.style.left = `${Math.random() * 100}%`;
-                orb.style.top = `${Math.random() * 100}%`;
-                
-                // Random animation duration
-                const duration = Math.random() * 30 + 20;
-                orb.style.animation = `float ${duration}s infinite linear`;
-                
-                // Random starting opacity
-                orb.style.opacity = Math.random() * 0.3 + 0.05;
-                
-                orbsContainer.appendChild(orb);
-                
-                // Create floating animation
-                animateOrb(orb);
-            }
-        }
-        
-        function animateOrb(orb) {
-            // Initial position
-            let x = Math.random() * window.innerWidth;
-            let y = Math.random() * window.innerHeight;
-            
-            // Random direction and speed
-            let dx = (Math.random() - 0.5) * 0.7;
-            let dy = (Math.random() - 0.5) * 0.7;
-            
-            function update() {
-                // Update position
-                x += dx;
-                y += dy;
-                
-                // Bounce off walls
-                if (x < 0 || x > window.innerWidth) dx = -dx;
-                if (y < 0 || y > window.innerHeight) dy = -dy;
-                
-                // Apply position
-                orb.style.left = `${x}px`;
-                orb.style.top = `${y}px`;
-                
-                // Continue animation
-                requestAnimationFrame(update);
-            }
-            
-            update();
-        }
-        
-        // Initialize FAQ accordion functionality
-        function initFaq() {
-            const questions = document.querySelectorAll('.faq-question');
-            
-            questions.forEach(question => {
-                question.addEventListener('click', () => {
-                    const answer = question.nextElementSibling;
-                    answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
-                });
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 2000);
             });
         }
-        
-        // Initialize everything when the page loads
-        window.addEventListener('load', () => {
-            createOrbs();
-            initFaq();
-        });
     </script>
 </body>
 </html>
